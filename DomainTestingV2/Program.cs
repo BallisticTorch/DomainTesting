@@ -32,10 +32,10 @@ namespace DomainTestingV2
                             if (!String.IsNullOrEmpty(bind.Host) && (bind.Host.IndexOf("www.") == -1))
                             {
                                 IPHostEntry hostEntry = Dns.GetHostEntry(bind.Host);
-                                if (!(hostEntry.AddressList[0].ToString() == "184.106.2.74") && !(hostEntry.AddressList[0].ToString() == "10.96.191.74") &&
-                                    !(hostEntry.AddressList[0].ToString() == "184.106.2.72") && !(hostEntry.AddressList[0].ToString() == "10.96.191.72") &&
-                                    !(hostEntry.AddressList[0].ToString() == "184.106.2.76") && !(hostEntry.AddressList[0].ToString() == "10.96.191.76") &&
-                                    !(hostEntry.AddressList[0].ToString() == "184.106.2.75") && !(hostEntry.AddressList[0].ToString() == "10.96.191.75") &&
+                                if (!(hostEntry.AddressList[0].ToString() == "x.x.x.x") && !(hostEntry.AddressList[0].ToString() == "x.x.x.x") &&
+                                    !(hostEntry.AddressList[0].ToString() == "x.x.x.x") && !(hostEntry.AddressList[0].ToString() == "x.x.x.x") &&
+                                    !(hostEntry.AddressList[0].ToString() == "x.x.x.x") && !(hostEntry.AddressList[0].ToString() == "x.x.x.x") &&
+                                    !(hostEntry.AddressList[0].ToString() == "x.x.x.x") && !(hostEntry.AddressList[0].ToString() == "x.x.x.x") &&
                                     !(hostEntry.AddressList[0].ToString() == "127.0.0.1"))
 
                                     sb.AppendLine(site + "," + bind.Host + "," + hostEntry.AddressList[0].ToString()); //add Domain that fails to resolve to webserver IPs
@@ -60,12 +60,12 @@ namespace DomainTestingV2
 
             var myMessage = new SendGridMessage();
 
-            myMessage.AddTo("bcoleman@netdriven.com");
-            myMessage.From = new MailAddress("tech@netdriven.com");
+            myMessage.AddTo("name@email.com");
+            myMessage.From = new MailAddress("anotherName@email.com");
             myMessage.Subject = Environment.MachineName;
             myMessage.Text = emailBody;
 
-            var credentials = new NetworkCredential("netdriven", "tirewob101");
+            var credentials = new NetworkCredential("username", "password");
 
             var transportWeb = new Web(credentials);
 
